@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: helloclass
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: csci5980-service
+            servicePort: 5000

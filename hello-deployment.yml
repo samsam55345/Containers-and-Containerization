@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csci5980-deployment
+  labels:
+      app: csci5980
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: csci5980
+  template:
+    metadata:
+      labels:
+        app: csci5980
+    spec:
+      containers:
+      - name: csci5980
+        image: sfrank97/csci5980
+        ports:
+        - containerPort: 5000
